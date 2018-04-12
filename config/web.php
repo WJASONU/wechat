@@ -47,8 +47,8 @@ $config = [
          'm' => [
             'class' => 'app\modules\m\MModule',
         ],
-        'wexin' => [
-            'class' => 'app\modules\wexin\WexinModule',
+        'weixin' => [
+            'class' => 'app\modules\wexin\WeixinModule',
         ],
     ],
 ];

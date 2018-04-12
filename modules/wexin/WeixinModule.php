@@ -3,9 +3,9 @@
 namespace app\modules\wexin;
 
 /**
- * wexin module definition class
+ * weixin module definition class
  */
-class WexinModule extends \yii\base\Module
+class WeixinModule extends \yii\base\Module
 {
     /**
      * @inheritdoc
