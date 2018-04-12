@@ -17,7 +17,7 @@ class MsgController extends BaseWebController
     	if(array_key_exists("echostr", $_GET) && $_GET['echostr']) {
     			return $_GET['echostr'];
     	}
-        return 'hello';
+        
     }
 
 
@@ -27,9 +27,9 @@ class MsgController extends BaseWebController
     	$nonce = trim( $this->get("nonce",""));
     	$tmpArr = array(\Yii::$app->params['weixin']['token'],$timestamp,$nonce);
     	sort($tmpArr);
-    	$tmpStr = implode($tmpArr,);
+    	$tmpStr = implode($tmpArr);
     	$tmpStr = sha1($tmpStr);
-    	if($tmpStr = $signature) {
+    	if($tmpStr == $signature) {
     		return true;
     	}else{
     		return false;
