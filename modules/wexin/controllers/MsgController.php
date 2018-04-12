@@ -16,6 +16,7 @@ class MsgController extends BaseWebController {
 		if( array_key_exists('echostr',$_GET) && $_GET['echostr']){//用于微信第一次认证的
 			return $_GET['echostr'];
 		}
+}
 
 	public function checkSignature(){
 		$signature = trim( $this->get("signature","") );
@@ -31,3 +32,4 @@ class MsgController extends BaseWebController {
 			return false;
 		}
 	}
+}
