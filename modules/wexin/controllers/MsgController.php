@@ -18,21 +18,18 @@ class MsgController extends BaseWebController {
 		}
 }
 
-	private function checkSignature()
-{
-    _GET["signature"];
-    _GET["timestamp"];
-    _GET["nonce"];
-
-tmpArr = array(timestamp, $nonce);
-sort($tmpArr, SORT_STRING);
-$tmpStr = implode( $tmpArr );
-$tmpStr = sha1( $tmpStr );
-
-if( signature ){
-return true;
-}else{
-return false;
-}
-}
+	public function checkSignature(){
+		$signature = trim( $this->get("signature","") );
+		$timestamp = trim( $this->get("timestamp","") );
+		$nonce = trim( $this->get("nonce","") );
+		$tmpArr = array( \Yii::$app->params['weixin']['token'],$timestamp,$nonce );
+		sort( $tmpArr,SORT_STRING );
+		$tmpStr = implode( $tmpArr );
+		$tmpStr = sha1( $tmpStr );
+		if( $tmpStr ==  $signature ){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
